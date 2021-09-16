@@ -50,7 +50,13 @@ int main() {
         {
             auto y = (sqrt((radius * radius) - ((x - h) * (x - h)))) + k;
             st::cout << y << st::endl;
-            image[y][x] = '5'; 
+            image[y][x] = '5';
+        }
+        for (auto x = h + radius; x > h - radius; x--)
+        {
+            auto y = -(sqrt((radius * radius) - ((x - h) * (x - h)))) + k;
+            st::cout << y << st::endl;
+            image[y][x] = '5';
         }
     }
     
