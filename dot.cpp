@@ -6,11 +6,11 @@ namespace st = std;
 
 int main() {
     auto image = st::vector <st::vector <char>> ();
-    for (auto imageIndex = 0; imageIndex < 41; imageIndex++)
+    for (auto imageIndex = 0; imageIndex < 101; imageIndex++)
     {
         st::vector<char>Column;
         image.push_back(Column);
-        for (auto rowIndex = 0; rowIndex < 41; rowIndex++)
+        for (auto rowIndex = 0; rowIndex < 101; rowIndex++)
         {
             image.at(imageIndex).push_back('.');  
         }
@@ -23,28 +23,7 @@ int main() {
     st::cout << ' ';
     st::cout << k << st::endl;
 
-    for (auto imageY = 0; imageY < image.size(); imageY++)
-    {
-        if (imageY == k)
-        {
-            for (auto countX = 0; countX < image[imageY].size(); countX++)
-            {
-                image[k][countX] = '0';
-            } 
-        }
-    } 
-
-    for (auto imageX = 0; imageX < image[k].size(); imageX++)
-    {
-        if (imageX == h)
-        {
-            for (auto countY = 0; countY < image.size(); countY++)
-            {
-                image[countY][h] = '0';
-            }
-        } 
-    }
-    for (auto radius = 10; radius < 15; radius++)
+    for (auto radius = 15; radius < 30; radius++)
     {
         for (auto x = h - radius; x < h + radius; x++)
         {
