@@ -5,14 +5,14 @@
 namespace st = std;
 
 int main() {
-    auto image = st::vector <st::vector <char>> ();
-    for (auto imageIndex = 0; imageIndex < 101; imageIndex++)
+    auto image = st::vector <st::vector <float>> ();
+    for (auto imageIndex = 0; imageIndex < 51; imageIndex++)
     {
-        st::vector<char>Column;
+        st::vector<float>Column;
         image.push_back(Column);
-        for (auto rowIndex = 0; rowIndex < 101; rowIndex++)
+        for (auto rowIndex = 0; rowIndex < 51; rowIndex++)
         {
-            image.at(imageIndex).push_back('.');  
+            image.at(imageIndex).push_back(20);  
         }
     }
 
@@ -23,29 +23,58 @@ int main() {
     st::cout << ' ';
     st::cout << k << st::endl;
 
-    for (auto radius = 15; radius < 30; radius++)
+    for (auto i = 0; i < image.size(); i++)
     {
-        for (auto x = h - radius; x < h + radius; x++)
-        {
-            auto y = (sqrt((radius * radius) - ((x - h) * (x - h)))) + k;
-            st::cout << y << st::endl;
-            image[y][x] = '5';
-        }
-        for (auto x = h + radius; x > h - radius; x--)
-        {
-            auto y = -(sqrt((radius * radius) - ((x - h) * (x - h)))) + k;
-            st::cout << y << st::endl;
-            image[y][x] = '5';
-        }
+        image[k][i] = 100;
+        image[i][h] = 100;
     }
     
-    
+
+    for (auto radius = 15; radius < 20; radius++)
+    {
+        for (auto x = h - radius; x <= h + radius; x++)
+        {
+            auto y = (sqrt((radius * radius) - ((x - h) * (x - h)))) + k;
+            if (y == 25)
+            {
+                st::cout << x << ' ';
+                st::cout << y << '\n';
+            }
+            
+            // st::cout << x << ' ';
+            // st::cout << round(y) << st::endl;
+            image[x][y] = 255;
+            image[y][x] = 255;
+            auto yb = -(sqrt((radius * radius) - ((x - h) * (x - h)))) + k;
+            if (yb == 25)
+            {
+                st::cout << x << ' ';
+                st::cout << yb << '\n';
+            }
+            // st::cout << x << ' ';
+            // st::cout << round(y) << st::endl;
+            image[x][yb] = 255;
+            image[yb][x] = 255;
+        }
+    }
 
     for (auto imageI = 0; imageI < image.size(); imageI++)
     {
         for (auto rowI = 0; rowI < image[imageI].size(); rowI++)
         {
-            st::cout << image[imageI][rowI] << ' ';
+            if (image[imageI][rowI] == 20)
+            {
+                st::cout << '.' << ' ';
+            }
+            else if (image[imageI][rowI] == 100)
+            {
+                st::cout << '0' << ' ';
+            }
+            else if (image[imageI][rowI] == 255)
+            {
+                st::cout << 'M' << ' ';
+            }
+            
         }
         st::cout << '\n';
     }
