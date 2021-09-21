@@ -15,12 +15,13 @@ int yCoordinate(double columnI, double cY){
 }
 
 int main(){
-    auto size = 51;
+    auto size = 101;
     auto centerX = size / 2;
     auto centerY = size / 2;
     auto image = st::vector <st::vector <float>> ();
-    auto minRadius = 10;
-    auto maxRadius = 15;
+    auto column = st::vector<float>();
+    auto minRadius = 5;
+    auto maxRadius = 25;
     for (auto columnIndex = 0; columnIndex < size; columnIndex++)
     {
         for (auto rowIndex = 0; rowIndex < size; rowIndex++)
@@ -33,7 +34,7 @@ int main(){
                 {
                     if (sqrt((x * x) + (y * y)) >= minRadius && sqrt((x * x) + (y * y)) <= maxRadius)
                     {
-                        st::cout << 'M' << ' ';
+                        st::cout << 'L' << ' ';
                     }
                     else
                     {
@@ -69,7 +70,7 @@ int main(){
                 {
                     if (sqrt((x * x) + (y * y)) >= minRadius && sqrt((x * x) + (y * y)) <= maxRadius)
                     {
-                        st::cout << 'M' << ' ';
+                        st::cout << 'L' << ' ';
                     }
                     else
                     {
@@ -78,7 +79,6 @@ int main(){
                 }
            }            
         }
-        st::cout << st::endl;        
-    }    
+        image.push_back(column);
     return 0;
 }
