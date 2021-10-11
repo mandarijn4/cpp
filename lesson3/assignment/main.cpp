@@ -8,7 +8,6 @@
 
 namespace st = std;
 
-
 int main(){
     float min = st::numeric_limits<float>::min();
     float max = st::numeric_limits<float>::max();

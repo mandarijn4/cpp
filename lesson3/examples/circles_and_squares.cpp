@@ -4,6 +4,8 @@
 
 namespace st = std;
 
+class Canvas;
+
 class Circle{
     friend class Canvas;
 
@@ -40,7 +42,34 @@ class Canvas{
 
     public:
         Canvas (int width = 64, int height = 48);
+        void render ();
+
+    protected:
+        int width;
+        int height;
+        float xOrigin;
+        float yOrigin;
+        st::vector <Circle> circles;
+        st::vector <Square> squares;
+        st::vector <st::vector <char> > rows;
+        int xCenter;
+        int yCenter;
+
+        void setCenter (int xCenter, int yCenter);
+        void drawRelative (float x, float y);
 };
+
+Circle::Circle(Canvas &canvas, int radius, int xCenter, int yCenter):
+    canvas(canvas), radius(radius), xCenter(xCenter), yCenter(yCenter)
+{
+    canvas.circles.push_back(*this);
+}
+
+Square::Square(Canvas &canvas, int side, int x = 0, int y = 0):
+    canvas(canvas), side(side)
+{   
+    canvas.squares.push_back(*this);
+}
 
 int main(){
     auto canvas = Canvas();
