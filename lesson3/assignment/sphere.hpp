@@ -6,7 +6,7 @@
 #include "vec3d.hpp"
 #include "ray.hpp"
 
-class Sphere : public Object{
+class Sphere{
     public:
         Vec3D center;
         float radius;

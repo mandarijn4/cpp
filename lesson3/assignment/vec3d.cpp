@@ -10,13 +10,9 @@ Vec3D::Vec3D(float x, float y, float z){
     this->y = y;
     this->z = z;
 };
-// void Vec3D::show(){
-//     st::cout << '\n';
-// };
 void Vec3D::show(){
     st::cout << "The co-ordinates are: x=" << this->x << ", y=" << this->y << ", z=" << this->z << '\n';
     st::cout << '\n';
-    //this->show();
 };
 void Vec3D::show(st::string label, float scalar){
     st::cout << "De scalar van het label " << label << " is " << scalar << '\n';
